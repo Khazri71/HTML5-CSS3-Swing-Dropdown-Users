@@ -1,0 +1,326 @@
+/*Variables*/
+:root {
+  --main-color-one: #022873;
+  --main-color-two: #5478bf;
+  --main-color-background-card: #ccc;
+  --main-color-text: #fff;
+  --main-transition-duration-fast: 0.5s;
+  --main-border-radius: 20px;
+  --main-font-size-text: 1.1rem;
+}
+/*Font*/
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;700&display=swap");
+/*Selection*/
+::-moz-selection {
+  background-color: var(--main-color-two);
+  color: var(--main-color-text);
+}
+::selection {
+  background-color: var(--main-color-two);
+  color: var(--main-color-text);
+}
+/*Scrollbar*/
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background-color: var(--main-color-background-card);
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--main-color-two);
+  border-radius: var(--main-border-radius);
+}
+::-webkit-scrollbar-corner {
+  border-radius: 50%;
+}
+/*HTML*/
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+/*All*/
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+/*Body*/
+body {
+  font-family: "Work Sans", sans-serif;
+  background-color: var(--main-color-one);
+  height: 100vh;
+}
+/*Start Header*/
+header {
+  background-color: var(--main-color-two);
+  height: 50px;
+  width: 100%;
+  padding: 0 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+header p {
+  text-transform: capitalize;
+  color: var(--main-color-text);
+  font-size: var(--main-font-size-text);
+  margin: 0 20px;
+}
+header p span,
+footer p span {
+  color: var(--main-color-one);
+  font-weight: 800;
+  font-size: 1.5rem;
+}
+header img {
+  width: 40px;
+  height: 40px;
+}
+/*End Header*/
+/*Start Main*/
+main h1 {
+  position: relative;
+  top: 100px;
+  text-align: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  color: var(--main-color-text);
+  font-size: 2.6rem;
+  text-transform: capitalize;
+}
+main h1::before {
+  position: absolute;
+  content: "";
+  width: 110%;
+  height: 110%;
+  background-color: var(--main-color-two);
+  z-index: -1;
+  top: 10px;
+  right: -20px;
+  border-radius: calc(var(--main-border-radius) / 2);
+  -webkit-transition: all var(--main-transition-duration-fast);
+  -o-transition: all var(--main-transition-duration-fast);
+  transition: all var(--main-transition-duration-fast);
+}
+main h1:hover::before {
+  top: 0;
+  right: 20px;
+}
+main .cards {
+  margin: 100px 0 150px;
+  display: -ms-grid;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 10px;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+main .cards hr {
+  display: none;
+}
+main .cards .card {
+  position: relative;
+  width: 400px;
+  height: 200px;
+  margin: 100px auto;
+  border-radius: var(--main-border-radius);
+}
+main .cards .card:hover .card-bottom {
+  -webkit-animation: move-top-bottom 3s ease-in-out alternate forwards;
+  animation: move-top-bottom 3s ease-in-out alternate forwards;
+}
+main .cards .card:hover .card-top .user-name hr {
+  display: block;
+}
+
+main .cards .card:hover .card-top .user-name {
+  height: 300px;
+}
+main .cards .card .card-top,
+main .cards .card .card-bottom {
+  position: absolute;
+  border-radius: var(--main-border-radius);
+}
+main .cards .card .card-top {
+  background-color: var(--main-color-background-card);
+  z-index: 1;
+  width: 100%;
+  height: 110%;
+  -webkit-transition: all calc(var(--main-transition-duration-fast) * 6);
+  -o-transition: all calc(var(--main-transition-duration-fast) * 6);
+  transition: all calc(var(--main-transition-duration-fast) * 6);
+}
+main .cards .card .card-top .user-image {
+  height: 40%;
+  background-color: var(--main-color-two);
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  position: relative;
+}
+main .cards .card .card-top .user-image::before {
+  position: absolute;
+  content: "";
+  width: 90px;
+  height: 90px;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--main-color-two);
+  top: 100%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 6px solid var(--main-color-two);
+}
+main .cards .card .card-top .im1::before {
+  background-image: url(images/avatar3.png);
+}
+main .cards .card .card-top .im2::before {
+  background-image: url(images/avatar7.png);
+}
+main .cards .card .card-top .im3::before {
+  background-image: url(images/avatar6.png);
+}
+main .cards .card .card-top .user-name {
+  text-align: center;
+}
+main .cards .card .card-top .user-name h2 {
+  font-size: var(--main-font-size-text);
+  font-weight: 800;
+  text-align: center;
+  margin: 60px 0 10px;
+  color: var(--main-color-two);
+  text-transform: capitalize;
+}
+main .cards .card .card-top .user-name hr {
+  display: none;
+}
+main .cards .card .card-top .user-name hr {
+  border: 0.5px solid var(--main-color-two);
+  width: 80%;
+  margin: 5px auto 0;
+  -webkit-box-shadow: var(--main-color-text) 0px 0px 5px,
+    var(--main-color-text) 0px 0px 10px, var(--main-color-text) 0px 0px 15px,
+    var(--main-color-two) 0px 0px 20px, var(--main-color-two) 0px 0px 30px,
+    var(--main-color-two) 0px 0px 40px, var(--main-color-two) 0px 0px 50px,
+    var(--main-color-two) 0px 0px 75px;
+  box-shadow: var(--main-color-text) 0px 0px 5px,
+    var(--main-color-text) 0px 0px 10px, var(--main-color-text) 0px 0px 15px,
+    var(--main-color-two) 0px 0px 20px, var(--main-color-two) 0px 0px 30px,
+    var(--main-color-two) 0px 0px 40px, var(--main-color-two) 0px 0px 50px,
+    var(--main-color-two) 0px 0px 75px;
+}
+main .cards .card .card-bottom {
+  background-color: var(--main-color-background-card);
+  z-index: -1;
+  width: 100%;
+  height: 110%;
+  padding: 20px 40px;
+  text-align: center;
+  top: 0;
+}
+main .cards .card .card-bottom p {
+  margin: 70px 0 10px;
+  font-size: 0.9rem;
+  text-transform: capitalize;
+  line-height: 1.6;
+}
+main .cards .card .card-top .social-media i {
+  font-size: var(--main-font-size-text);
+  margin: 0 8px 10px;
+  color: var(--main-color-two);
+}
+main .cards .card .card-top .social-media a i:hover {
+  -webkit-transform: scale(1.4);
+  -ms-transform: scale(1.4);
+  transform: scale(1.4);
+  text-shadow: var(--main-color-text) 0px 0px 5px,
+    var(--main-color-text) 0px 0px 10px, var(--main-color-text) 0px 0px 15px,
+    var(--main-color-two) 0px 0px 20px, var(--main-color-two) 0px 0px 30px,
+    var(--main-color-two) 0px 0px 40px, var(--main-color-two) 0px 0px 50px,
+    var(--main-color-two) 0px 0px 75px;
+}
+/*End Main*/
+/*Start Footer*/
+footer {
+  background-color: var(--main-color-two);
+  height: 40px;
+  width: 100%;
+}
+footer p {
+  text-align: center;
+  text-transform: capitalize;
+  color: var(--main-color-text);
+  font-size: var(--main-font-size-text);
+  padding-top: 3px;
+}
+/*End Footer*/
+
+/*Animation*/
+@-webkit-keyframes move-top-bottom {
+  0% {
+    top: 0;
+  }
+  20% {
+    top: 40%;
+  }
+  40% {
+    top: 20%;
+  }
+  60% {
+    top: 60%;
+  }
+  80% {
+    top: 40%;
+  }
+  100% {
+    top: 85%;
+  }
+}
+@keyframes move-top-bottom {
+  0% {
+    top: 0;
+  }
+  20% {
+    top: 40%;
+  }
+  40% {
+    top: 20%;
+  }
+  60% {
+    top: 60%;
+  }
+  80% {
+    top: 40%;
+  }
+  100% {
+    top: 85%;
+  }
+}
+
+/*Media Query*/
+@media (max-width: 767px) {
+  main .cards .card {
+    width: 300px;
+    height: 250px;
+    margin: 150px auto;
+  }
+  main .cards hr {
+    border: 1px solid var(--main-color-two);
+    z-index: -5;
+  }
+  main .cards hr {
+    display: block;
+  }
+}
